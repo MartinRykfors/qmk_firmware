@@ -9,6 +9,7 @@
 
 #define BASE 0
 #define QWERTY 1
+#define SE_QWERTY 6
 #define NUM 2
 #define SYMB 3
 #define SYMB_QWERTY 4
@@ -68,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  _______,         KC_A,       KC_O,       KC_E,       KC_U,       KC_I,
  _______,         KC_SCLN,    KC_Q,       KC_J,       KC_K,       KC_X,            _______,
  MO(SYMB_QWERTY), _______,    _______,    _______,    _______,
- /**/             /**/        /**/        /**/        /**/        _______,         TO(BASE),
+ /**/             /**/        /**/        /**/        /**/        _______,         TG(SE_QWERTY),
  /**/             /**/        /**/        /**/        /**/        /**/             _______,
  /**/             /**/        /**/        /**/        _______,    MO(SYMB_QWERTY), _______,
 
@@ -203,6 +204,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  _______,
  _______,    _______,    KC_RALT
 ),
+[SE_QWERTY] = LAYOUT_ergodox(
+ /*_______*/ /*_______*/ /*_______*/ /*_______*/ /*_______*/ /*_______*/ /*_______*/
+ _______,    _______,    _______,    _______,    _______,    _______,    _______,
+ _______,    KC_LBRC,    KC_QUOT,    KC_SCLN,    _______,    _______,    _______,
+ _______,    _______,    _______,    _______,    _______,    _______,
+ _______,    _______,    _______,    _______,    _______,    _______,    _______,
+ _______,    _______,    _______,    _______,    _______,
+ /**/        /**/        /**/        /**/        /**/        _______,    TO(BASE),
+ /**/        /**/        /**/        /**/        /**/        /**/        _______,
+ /**/        /**/        /**/        /**/        _______,    _______,    _______,
+
+ _______,    _______,    _______,    _______,    _______,    _______,    _______,
+ _______,    _______,    _______,    _______,    _______,    _______,    KC_COMM,
+ /**/        _______,    _______,    _______,    _______,    _______,    _______,
+ _______,    _______,    _______,    _______,    _______,    _______,    _______,
+ /**/        /**/        _______,    _______,    _______,    _______,    _______,
+ _______,    _______,
+ _______,
+ _______,    _______,    _______
+),
 };
 
 const uint16_t PROGMEM fn_actions[] = {
@@ -243,6 +264,10 @@ void matrix_scan_user(void) {
   if (layer_state & (1 << QWERTY)){
       ergodox_right_led_3_set(LED_BRIGHTNESS_LO);
       ergodox_right_led_3_on();
+  }
+  if (layer_state & (1 << SE_QWERTY)){
+      ergodox_right_led_1_set(LED_BRIGHTNESS_LO);
+      ergodox_right_led_1_on();
   }
   if (layer_state & (1 << NUM)){
       ergodox_right_led_2_set(LED_BRIGHTNESS_HI);
