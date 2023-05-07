@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  _______,         KC_F,       KC_G,       KC_C,       KC_R,       KC_L,            KC_SLASH,
  /**/             KC_D,       KC_H,       KC_T,       KC_N,       KC_S,            KC_MINUS,
  _______,         KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,            _______,
- /**/             /**/        KC_DOT,    _______,    _______,    _______,          KC_BSLASH,
+ /**/             /**/        KC_DOT,    _______,    _______,    _______,          KC_BSLS,
  _______,         _______,
  _______,
  _______,         MO(SYMB_QWERTY),    _______
@@ -210,21 +210,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const uint16_t PROGMEM fn_actions[] = {
     [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
-};
-
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-  // MACRODOWN only works in this function
-  switch(id) {
-    case 0:
-      if (record->event.pressed) {
-        register_code(KC_RSFT);
-      } else {
-        unregister_code(KC_RSFT);
-      }
-      break;
-  }
-  return MACRO_NONE;
 };
 
 // Runs just one time when the keyboard initializes.
