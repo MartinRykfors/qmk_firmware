@@ -316,7 +316,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [BLENDER_ADDITIONAL] = LAYOUT_ergodox(
  /*_______*/ /*_______*/  /*_______*/ /*_______*/ /*_______*/ /*_______*/ /*_______*/
- _______,    _______,     _______,    _______,    _______,    _______,    _______,
+ _______,    KC_0,        KC_9,       KC_8,       KC_7,       KC_6,       _______,
  _______,    DV_L,        DV_R,       DV_C,       DV_G,       DV_F,       _______,
  _______,    DV_S,        DV_N,       DV_T,       DV_H,       DV_D,
  _______,    DV_Z,        DV_V,       DV_W,       DV_M,       DV_B,       _______,
